@@ -1,0 +1,21 @@
+Connect PA9 (USART1_TX) on the STM32 Nucleo board (check the pinout, typically on CN7 pin 21 or D8 on Morpho connectors) to Arduino Uno RX (pin 0).
+Connect GND from the STM32 Nucleo to GND on the Arduino Uno.
+
+
+Go to Connectivity > USART1.
+Set the Mode to Asynchronous.
+Leave Hardware Flow Control as Disabled.
+
+Under Parameter Settings for USART1:
+Baud Rate: 9600 Bits/s (common and reliable for Arduino).
+Word Length: 8 Bits.
+Parity: None.
+Stop Bits: 1.
+Data Direction: Transmit Only (since we’re only sending from STM32).
+
+1.4 Enable SWV (Serial Wire Viewer) for Debugging
+Go to System Core > SYS.
+Set Debug to Serial Wire.
+Enable Timebase Source as SysTick (default).
+Go to System Core > ITM (Instrumentation Trace Macrocell):
+Enable ITM Stimulus Port 0 (this is for SWV output).
